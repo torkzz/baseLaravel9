@@ -5,7 +5,7 @@ namespace App\Services\Requests;
 use App\Traits\ConsumeExternalServiceTrait;
 use App\Traits\GuzzleHttpHelperTrait;
 
-class GmaNews
+class TelegramBot
 {
     use ConsumeExternalServiceTrait;
     use GuzzleHttpHelperTrait;
@@ -16,6 +16,7 @@ class GmaNews
      * @var string
      */
     public $basUri;
+    public $token="";
 
     /**
      * The specific request url extension/prefix to consume service.
@@ -26,8 +27,7 @@ class GmaNews
 
     public function __construct()
     {
-        $this->baseUri = "test.com/";
-        $this->requestUrl = 'audit-log';
+    
     }
 
     // /**
@@ -45,19 +45,20 @@ class GmaNews
      *
      * @return JsonReponse
      */
-    public function getList($requestData)
+    public function sendMessage($chatID,$message, $token)
     {
-        return $this->performRequest('GET', "https://data2.gmanetwork.com/gno/microsites/eleksyon2022/news_stories.gz", $this->prepareRequestOptions($requestData, 'query'));
-    }
-
-    /**
-     * Display Latest News
-     *
-     * @return JsonReponse
-     */
-    public function getFeaturedList($requestData)
-    {
-        return $this->performRequest('GET', "https://data.igma.tv/entertainment/portal/featured_articles.gz", $this->prepareRequestOptions($requestData, 'query'));
+        echo "sending message to " . $chatID . "\n";
+        $url = "https://api.telegram.org/bot" . $token . "/sendMessage?chat_id=" . $chatID;
+        $url = $url . "&text=" . urlencode($message);
+        $ch = curl_init();
+        $optArray = array(
+                CURLOPT_URL => $url,
+                CURLOPT_RETURNTRANSFER => true
+        );
+        curl_setopt_array($ch, $optArray);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        // return $this->performRequest('GET', "https://data2.gmanetwork.com/gno/microsites/eleksyon2022/news_stories.gz", $this->prepareRequestOptions($requestData, 'query'));
     }
 
 

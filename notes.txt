@@ -9,6 +9,7 @@ LoginController
 
 php artisan make:migration create_news
 
+php artisan make:model GmaNew
 
 
 php artisan make:command LogCron --command=log:cron

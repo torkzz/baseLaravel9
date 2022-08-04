@@ -45,7 +45,7 @@ return new class extends Migration
     {
         Schema::create('gma_news', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 100);
+            $table->text('title');
             $table->string('date', 100);
             $table->text('teaser');
             $table->string('photo_id');

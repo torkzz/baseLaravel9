@@ -15,6 +15,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\LogCron::class,
+        Commands\GmaGetNewsFeaturedCron::class,
+        Commands\GmaGetNewsCron::class,
     ];
       
     /**
@@ -27,6 +29,8 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('log:cron')->everyMinute();
+        $schedule->command('Gma:getNews')->everyMinute();
+        $schedule->command('Gma:getFeatureNews')->everyMinute();
     }
 
     /**
