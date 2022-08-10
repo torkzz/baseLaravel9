@@ -41,6 +41,7 @@ class GmaGetNewsCron extends Command
      */
     public function handle(Request $request)
     {
+        $this->info("================ gmaNewsRequest->getList =================\n\n");
         // getting news_stories
         $data = json_decode($this->gmaNewsRequest->getList($request), true);
         foreach ($data as $news) {
@@ -48,13 +49,12 @@ class GmaGetNewsCron extends Command
             if (!$check) {
                 $this->saveGmaNews($news);
                 $this->telegramBot->sendMessage('327943312', $news['title'], '5066306304:AAEukNjKYnWJ7CzQGF5p6iCqzmrS7gPVPLM');
-            } else {
+            // } else {
                 $this->info("================ not new =================\n\n");
                 $this->info($news['title']);
                 $this->info($news['date']);
                 $this->info("================ not new =================\n\n");
             }
-            $this->info("================ gmaNewsRequest->getList =================\n\n");
         }
         return 0;
     }

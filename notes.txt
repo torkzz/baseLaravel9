@@ -24,3 +24,56 @@ OR
 
 
 * * * * * php /mnt/c/laragon/www/baseLaravel9/artisan schedule:run 1>> /dev/null 2>&1
+
+
+git issue on nuxt webite to be deployed on standalone server
+
+
+Camila Public IP : 52.221.22.145
+Private IP : 172.16.2.81
+
+Open Notepad as administrator and
+Edit C:\Windows\System32\drivers\etc\hosts
+Insert this:
+
+52.74.230.86 m360.com.ph
+52.74.230.86 www.m360.com.ph
+52.74.230.86 client.m360.com.ph
+52.74.230.86 dev.m360.com.ph
+52.74.230.86 diy.m360.com.ph
+52.74.230.86 gcash.m360.com.ph
+52.74.230.86 gcashalias.m360.com.ph
+52.74.230.86 messenger.m360.com.ph
+52.74.230.86 preprod.m360.com.ph
+52.74.230.86 q.m360.com.ph
+52.74.230.86 stg.m360.com.ph
+52.74.230.86 viber.m360.com.ph
+bali yung sa notepad na
+IP + domain
+ganito itsura
+
+
+#52.74.230.86 m360.com.ph
+#52.74.230.86 www.m360.com.ph
+#52.74.230.86 client.m360.com.ph
+#52.74.230.86 dev.m360.com.ph
+#52.74.230.86 diy.m360.com.ph
+#52.74.230.86 gcash.m360.com.ph
+#52.74.230.86 gcashalias.m360.com.ph
+#52.74.230.86 messenger.m360.com.ph
+#52.74.230.86 preprod.m360.com.ph
+#52.74.230.86 q.m360.com.ph
+#52.74.230.86 stg.m360.com.ph
+#52.74.230.86 viber.m360.com.ph
+
+mgutierrez+1@yondu.com         => mgutierrez+1@m360.com.ph
+mgutierrez+lei@yondu.com       => mgutierrez+lei@m360.com.ph
+gjaguinaldo+11111111@yondu.com => gjaguinaldo+11111111@m360.com.ph
+mgutierrez+2@yondu.com         => mgutierrez+2@m360.com.ph
+
+mgutierrez@m360.com.ph
+
+SELECT * FROM user u WHERE u.email = "mgutierrez+1@yondu.com"
+SELECT * FROM user u WHERE u.email = "mgutierrez+lei@yondu.com"
+SELECT * FROM user u WHERE u.email = "gjaguinaldo+11111111@yondu.com"
+SELECT * FROM user u WHERE u.email = "mgutierrez+2@yondu.com"

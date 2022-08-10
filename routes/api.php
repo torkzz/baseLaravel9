@@ -43,5 +43,5 @@ Route::get('/products/search/{name}', [ProductController::class, 'search']);
 
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
-Route::post('test', [GmaNewsController::class, 'test']);
+Route::get('test', [GmaNewsController::class, 'test']);
 

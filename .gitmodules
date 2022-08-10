@@ -1,0 +1,6 @@
+[submodule "storage/logs/-f"]
+	path = storage/logs/-f
+	url = https://github.com/Laradock/laradock.git
+[submodule "storage/logs/laradock"]
+	path = storage/logs/laradock
+	url = https://github.com/Laradock/laradock.git
